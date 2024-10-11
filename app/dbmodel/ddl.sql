@@ -776,3 +776,5 @@ ALTER TABLE board_photo
   REFERENCES board ( -- 게시글
   board_id -- 게시글 번호
   );
+  
+  
