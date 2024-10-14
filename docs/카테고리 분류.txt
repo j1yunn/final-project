@@ -1,6 +1,6 @@
 프라모델 
 -건담  : PG, RG, MG, HG, SD, EG, 1/60/100/144, Re/100
--애니 프라모델 : EG, HG, RG, Figure-rise 시리즈, Figure-rise LABO, 포켓프라, 30minutes MISSIONS, 그 외
+
 
 레고
 아키텍처
@@ -54,4 +54,6 @@ Lord of the Rings™
 스파이더맨
 스타워즈™
 테크닉
+
+
 
