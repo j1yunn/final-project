@@ -1,6 +1,9 @@
-package moum.project.config;
+package project.config;
 
 import java.io.File;
+
+import moum.project.config.AppConfig;
+import moum.project.config.RootConfig;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -11,7 +14,7 @@ import javax.servlet.ServletRegistration;
 public class WebApplicationInitializerImpl extends AbstractAnnotationConfigDispatcherServletInitializer {
   @Override
   protected Class<?>[] getRootConfigClasses() {
-    return new Class[] {RootConfig.class, SecurityConfig.class};
+    return new Class[] {RootConfig.class, project.config.SecurityConfig.class};
   }
 
   @Override
