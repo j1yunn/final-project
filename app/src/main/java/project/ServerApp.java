@@ -12,6 +12,18 @@ import org.apache.catalina.webresources.StandardRoot;
 
 import java.io.File;
 
+/**
+ * packageName    : project
+ * fileName       : ServerApp
+ * author         : narilee
+ * date           : 24. 10. 14.
+ * description    : 내장 Tomcat 서버를 설정하고 실행하는 클래스입니다.
+ *                  이 클래스는 웹 애플리케이션을 위한 서버 환경을 구성하고 실행합니다.
+ * ===========================================================
+ * DATE              AUTHOR             NOTE
+ * -----------------------------------------------------------
+ * 24. 10. 14.        narilee       최초 생성
+ */
 public class ServerApp {
 
     /**
