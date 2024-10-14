@@ -9,15 +9,14 @@
 <!doctype html>
 <html>
 <head>
-   <meta charset='UTF-8'>
-   <title>Document</title>
-   <link href='/css/common.css' rel='stylesheet'>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+  <link href='/css/common.css' rel='stylesheet'>
 </head>
 <body>
 
 <header>
   <a href='/'><img src='/images/home.png'></a>
-
   <nav>
     <ul>
       <li class='btn'><a href='/'>마이홈</a></li>

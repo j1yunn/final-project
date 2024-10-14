@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@ComponentScan("moum.project.controller")
+@ComponentScan("project.controller")
 @EnableWebMvc // WebMVC 관련기능 처리코드를 활성화
 public class AppConfig {
   @Bean
