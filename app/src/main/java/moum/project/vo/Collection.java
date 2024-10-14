@@ -2,40 +2,39 @@ package moum.project.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class Collection implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  private int collectionId;
-  private int userId;
-  private int subCategoryId;
+  private int no;
+  private int userNo;
+  private int subCategoryNo;
   private String name;
-  private int statusId;
+  private int statusNo;
   private java.sql.Date purchaseDate;
   private String purchasePlace;
   private int price;
   private String storageLocation;
-  private java.sql.Date postDate;
+  private java.util.Date postDate;
 
   public Collection() {
   }
 
-  public Collection(int collectionId) {
-    this.collectionId = collectionId;
+  public Collection(int no) {
+    this.no = no;
   }
 
   @Override
   public String
   toString() {
     return "Collection{" +
-            "collectionId=" + collectionId +
-            ", userId=" + userId +
-            ", subCategoryId=" + subCategoryId +
+            "collectionId=" + no +
+            ", userId=" + userNo +
+            ", subCategoryId=" + subCategoryNo +
             ", name='" + name + '\'' +
-            ", statusId=" + statusId +
+            ", statusId=" + statusNo +
             ", purchaseDate=" + purchaseDate +
             ", purchasePlace='" + purchasePlace + '\'' +
             ", price=" + price +
@@ -49,36 +48,36 @@ public class Collection implements Serializable {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Collection that = (Collection) o;
-    return collectionId == that.collectionId;
+    return no == that.no;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(collectionId);
+    return Objects.hashCode(no);
   }
 
-  public int getCollectionId() {
-    return collectionId;
+  public int getNo() {
+    return no;
   }
 
-  public void setCollectionId(int collectionId) {
-    this.collectionId = collectionId;
+  public void setNo(int no) {
+    this.no = no;
   }
 
-  public int getUserId() {
-    return userId;
+  public int getUserNo() {
+    return userNo;
   }
 
-  public void setUserId(int userId) {
-    this.userId = userId;
+  public void setUserNo(int userNo) {
+    this.userNo = userNo;
   }
 
-  public int getSubCategoryId() {
-    return subCategoryId;
+  public int getSubCategoryNo() {
+    return subCategoryNo;
   }
 
-  public void setSubCategoryId(int subCategoryId) {
-    this.subCategoryId = subCategoryId;
+  public void setSubCategoryNo(int subCategoryNo) {
+    this.subCategoryNo = subCategoryNo;
   }
 
   public String getName() {
@@ -89,12 +88,12 @@ public class Collection implements Serializable {
     this.name = name;
   }
 
-  public int getStatusId() {
-    return statusId;
+  public int getStatusNo() {
+    return statusNo;
   }
 
-  public void setStatusId(int statusId) {
-    this.statusId = statusId;
+  public void setStatusNo(int statusNo) {
+    this.statusNo = statusNo;
   }
 
   public Date getPurchaseDate() {
@@ -129,7 +128,7 @@ public class Collection implements Serializable {
     this.storageLocation = storageLocation;
   }
 
-  public Date getPostDate() {
+  public java.util.Date getPostDate() {
     return postDate;
   }
 
