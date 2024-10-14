@@ -67,6 +67,9 @@ DROP TABLE IF EXISTS collection_photo RESTRICT;
 -- 게시글 첨부파일
 DROP TABLE IF EXISTS board_photo RESTRICT;
 
+-- 수집품 상태
+DROP TABLE IF EXISTS collection_status RESTRICT;
+
 -- 회원
 CREATE TABLE user (
   user_id    INTEGER      NOT NULL COMMENT '회원 번호', -- 회원 번호
@@ -214,7 +217,7 @@ CREATE TABLE collection (
   user_id          INTEGER      NOT NULL COMMENT '소유자 번호', -- 소유자 번호
   subcategory_id   INTEGER      NOT NULL COMMENT '소분류번호', -- 소분류번호
   name             VARCHAR(50)  NOT NULL COMMENT '제품명', -- 제품명
-  status           INTEGER      NOT NULL COMMENT '제품 상태', -- 제품 상태
+  status_id        INTEGER      NULL     COMMENT '수집품상태번호', -- 수집품상태번호
   purchase_date    DATE         NULL     COMMENT '구매일자', -- 구매일자
   purchase_place   VARCHAR(255) NULL     COMMENT '구매처', -- 구매처
   price            INTEGER      NULL     COMMENT '가격', -- 가격
@@ -261,7 +264,7 @@ CREATE TABLE alert (
   user_id       INTEGER  NOT NULL COMMENT '수신자 번호', -- 수신자 번호
   alert_content TEXT     NOT NULL COMMENT '알림 내용', -- 알림 내용
   alert_date    DATETIME NOT NULL DEFAULT now() COMMENT '알림 날짜', -- 알림 날짜
-  alert_read    TINYINT  NOT NULL COMMENT '읽기여부' -- 읽기여부
+  alert_read    TINYINT  NOT NULL DEFAULT 0 COMMENT '읽기여부' -- 읽기여부
 )
 COMMENT '알림';
 
@@ -484,8 +487,8 @@ ALTER TABLE kakao
 -- 수집품 첨부파일
 CREATE TABLE collection_photo (
   photo_id      INTEGER      NOT NULL COMMENT '수집품 첨부파일 번호', -- 수집품 첨부파일 번호
-  collection_id INTEGER      NULL     COMMENT '수집품 번호', -- 수집품 번호
-  filepath      VARCHAR(255) NULL     COMMENT '경로' -- 경로
+  collection_id INTEGER      NOT NULL COMMENT '수집품 번호', -- 수집품 번호
+  filepath      VARCHAR(255) NOT NULL COMMENT '경로' -- 경로
 )
 COMMENT '수집품 첨부파일';
 
@@ -502,8 +505,8 @@ ALTER TABLE collection_photo
 -- 게시글 첨부파일
 CREATE TABLE board_photo (
   photo_id INTEGER      NOT NULL COMMENT '게시글첨부파일 번호', -- 게시글첨부파일 번호
-  board_id INTEGER      NULL     COMMENT '게시글 번호', -- 게시글 번호
-  filepath VARCHAR(255) NULL     COMMENT '경로' -- 경로
+  board_id INTEGER      NOT NULL COMMENT '게시글 번호', -- 게시글 번호
+  filepath VARCHAR(255) NOT NULL COMMENT '경로' -- 경로
 )
 COMMENT '게시글 첨부파일';
 
@@ -516,6 +519,23 @@ ALTER TABLE board_photo
 
 ALTER TABLE board_photo
   MODIFY COLUMN photo_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시글첨부파일 번호';
+
+-- 수집품 상태
+CREATE TABLE collection_status (
+  status_id   INTEGER      NOT NULL COMMENT '수집품상태번호', -- 수집품상태번호
+  status_name VARCHAR(255) NOT NULL COMMENT '상태명' -- 상태명
+)
+COMMENT '수집품 상태';
+
+-- 수집품 상태
+ALTER TABLE collection_status
+  ADD CONSTRAINT PK_collection_status -- 수집품 상태 기본키
+  PRIMARY KEY (
+  status_id -- 수집품상태번호
+  );
+
+ALTER TABLE collection_status
+  MODIFY COLUMN status_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '수집품상태번호';
 
 -- 회원
 ALTER TABLE user
@@ -635,6 +655,16 @@ ALTER TABLE collection
   )
   REFERENCES subcategory ( -- 유형 소분류
   subcategory_id -- 소분류번호
+  );
+
+-- 수집품
+ALTER TABLE collection
+  ADD CONSTRAINT FK_collection_status_TO_collection -- 수집품 상태 -> 수집품
+  FOREIGN KEY (
+  status_id -- 수집품상태번호
+  )
+  REFERENCES collection_status ( -- 수집품 상태
+  status_id -- 수집품상태번호
   );
 
 -- 신고
@@ -776,6 +806,3 @@ ALTER TABLE board_photo
   REFERENCES board ( -- 게시글
   board_id -- 게시글 번호
   );
-  
-  
-  
