@@ -25,6 +25,10 @@ dependencies {
     // Persistence Framework
     implementation 'org.mybatis:mybatis:3.5.16'
 
+    // Spring Security 라이브러리
+    implementation 'org.springframework.security:spring-security-web:5.7.10'
+    implementation 'org.springframework.security:spring-security-config:5.7.10'
+
     // Tomcat Embedded Server 라이브러리
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.93'
 
@@ -65,7 +69,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'project.ServerApp'
+    mainClass = 'moum.project.ServerApp'
 }
 
 tasks.named('test') {

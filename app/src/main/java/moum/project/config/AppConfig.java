@@ -1,4 +1,4 @@
-package project.config;
+package moum.project.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
