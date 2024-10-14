@@ -159,4 +159,5 @@ INSERT INTO report_result_category (report_result_id, result_name) VALUES
 
 INSERT INTO forbidden_word (word) VALUES
 ('시바'),
+('ㅄ'),
 ('ㅅㅂ');
