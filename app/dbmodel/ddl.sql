@@ -70,6 +70,9 @@ DROP TABLE IF EXISTS board_photo RESTRICT;
 -- 수집품 상태
 DROP TABLE IF EXISTS collection_status RESTRICT;
 
+-- 거래 상태
+DROP TABLE IF EXISTS trade_status RESTRICT;
+
 -- 회원
 CREATE TABLE user (
   user_id    INTEGER      NOT NULL COMMENT '회원 번호', -- 회원 번호
@@ -536,6 +539,20 @@ ALTER TABLE collection_status
 
 ALTER TABLE collection_status
   MODIFY COLUMN status_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '수집품상태번호';
+
+-- 거래 상태
+CREATE TABLE trade_status (
+  trade_status_id   TINYINT      NOT NULL COMMENT '거래 상태 번호', -- 거래 상태 번호
+  trade_status_name VARCHAR(255) NOT NULL COMMENT '거래 상태명' -- 거래 상태명
+)
+COMMENT '거래 상태';
+
+-- 거래 상태
+ALTER TABLE trade_status
+  ADD CONSTRAINT PK_trade_status -- 거래 상태 기본키
+  PRIMARY KEY (
+  trade_status_id -- 거래 상태 번호
+  );
 
 -- 회원
 ALTER TABLE user
