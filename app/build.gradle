@@ -60,7 +60,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'project.ServerApp'
+    mainClass = 'moum.project.ServerApp'
 }
 
 tasks.named('test') {
