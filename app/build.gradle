@@ -60,7 +60,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'project.App'
+    mainClass = 'project.ServerApp'
 }
 
 tasks.named('test') {
