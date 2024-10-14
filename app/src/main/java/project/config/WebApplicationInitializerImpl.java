@@ -11,16 +11,11 @@ import javax.servlet.ServletRegistration;
 public class WebApplicationInitializerImpl extends AbstractAnnotationConfigDispatcherServletInitializer {
   @Override
   protected Class<?>[] getRootConfigClasses() {
-    // ContextLoaderListener의 IoC Container 설정
-    // - DB 관련 객체 준비
-    // - 서비스 관련 객체 준비
-    return new Class[] {RootConfig.class};
+    return new Class[] {RootConfig.class, SecurityConfig.class};
   }
 
   @Override
   protected Class<?>[] getServletConfigClasses() {
-    // DispatcherServlet의 IoC Container 설정
-    // - Web 관련 객체 준비
     return new Class[] {AppConfig.class};
   }
 
@@ -41,6 +36,8 @@ public class WebApplicationInitializerImpl extends AbstractAnnotationConfigDispa
 
   @Override
   protected Filter[] getServletFilters() {
-    return new Filter[] {new CharacterEncodingFilter("UTF-8")};
+    return new Filter[] {
+        new CharacterEncodingFilter("UTF-8")
+    };
   }
 }
