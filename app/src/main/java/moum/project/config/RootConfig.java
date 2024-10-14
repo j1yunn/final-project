@@ -1,4 +1,4 @@
-package project.config;
+package moum.project.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

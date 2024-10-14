@@ -1,4 +1,4 @@
-package project.config;
+package moum.project.config;
 
 import java.io.File;
 import org.springframework.web.filter.CharacterEncodingFilter;
