@@ -17,19 +17,19 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-@ComponentScan(
-    value = "bitcamp.myapp",
-    excludeFilters = @ComponentScan.Filter(
-        type = FilterType.ANNOTATION,
-        value = Controller.class
-    )
-)
+//@ComponentScan(
+//    value = "bitcamp.myapp",
+//    excludeFilters = @ComponentScan.Filter(
+//        type = FilterType.ANNOTATION,
+//        value = Controller.class
+//    )
+//)
 @PropertySource({
     "classpath:config/jdbc.properties",
     "file:${user.home}/config/ncp.properties"
 })
-@EnableTransactionManagement // @Transactional 이 붙은 메서드가 붙은 클래스는 Proxy 를 만들어라
-@MapperScan("bitcamp.myapp.dao") // 인터페이스가 들어있는 패키지 위치
+//@EnableTransactionManagement // @Transactional 이 붙은 메서드가 붙은 클래스는 Proxy 를 만들어라
+//@MapperScan("bitcamp.myapp.dao") // 인터페이스가 들어있는 패키지 위치
 public class RootConfig {
 
   ApplicationContext appCtx;
