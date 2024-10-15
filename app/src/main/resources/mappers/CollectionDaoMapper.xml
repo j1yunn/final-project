@@ -5,7 +5,7 @@
 
 <mapper namespace="moum.project.dao.CollectionDao">
 
-  <resultMap id="CollectionMap" type="collection">
+  <resultMap id="CollectionMap" type="moum.project.vo.Collection">
     <id column="collection_id" property="no"/>
     <result column="user_id" property="userNo"/>
     <result column="subcategory_id" property="subcategoryNo"/>
@@ -16,14 +16,32 @@
     <result column="price" property="price"/>
     <result column="storage_location" property="storageLocation"/>
     <result column="post_date" property="postDate"/>
+
+    <collection property="attachedFiles" ofType="moum.project.vo.AttachedFile">
+      <id column="photo_id" property="no"/>
+      <result column="filepath" property="filepath"/>
+    </collection>
   </resultMap>
 
   <insert id="insert">
 
   </insert>
 
-  <select id="list">
-
+  <select id="list" resultMap="CollectionMap">
+    select
+      c.collection_id,
+      c.name,
+      c.subcategory_id,
+      c.status_id,
+      cs.status_name,
+      cp.photo_id,
+      cp.filepath
+    from
+      collection c
+      left join collection_status cs on c.status_id = cs.status_id
+      left join collection_photo cp on c.collection_id = cp.collection_id
+    where
+      c.user_id = 2
   </select>
 
   <select id="findBy">

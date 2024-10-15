@@ -2,6 +2,7 @@ package moum.project.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Collection implements Serializable {
@@ -10,7 +11,7 @@ public class Collection implements Serializable {
 
   private int no;
   private int userNo;
-  private int subCategoryNo;
+  private int subcategoryNo;
   private String name;
   private int statusNo;
   private java.sql.Date purchaseDate;
@@ -18,6 +19,7 @@ public class Collection implements Serializable {
   private int price;
   private String storageLocation;
   private java.util.Date postDate;
+  private List<AttachedFile> attachedFiles;
 
   public Collection() {
   }
@@ -27,20 +29,20 @@ public class Collection implements Serializable {
   }
 
   @Override
-  public String
-  toString() {
+  public String toString() {
     return "Collection{" +
-            "collectionId=" + no +
-            ", userId=" + userNo +
-            ", subCategoryId=" + subCategoryNo +
-            ", name='" + name + '\'' +
-            ", statusId=" + statusNo +
-            ", purchaseDate=" + purchaseDate +
-            ", purchasePlace='" + purchasePlace + '\'' +
-            ", price=" + price +
-            ", storageLocation='" + storageLocation + '\'' +
-            ", postDate=" + postDate +
-            '}';
+        "no=" + no +
+        ", userNo=" + userNo +
+        ", subCategoryNo=" + subcategoryNo +
+        ", name='" + name + '\'' +
+        ", statusNo=" + statusNo +
+        ", purchaseDate=" + purchaseDate +
+        ", purchasePlace='" + purchasePlace + '\'' +
+        ", price=" + price +
+        ", storageLocation='" + storageLocation + '\'' +
+        ", postDate=" + postDate +
+        ", attachedFiles=" + attachedFiles +
+        '}';
   }
 
   @Override
@@ -73,11 +75,11 @@ public class Collection implements Serializable {
   }
 
   public int getSubCategoryNo() {
-    return subCategoryNo;
+    return subcategoryNo;
   }
 
   public void setSubCategoryNo(int subCategoryNo) {
-    this.subCategoryNo = subCategoryNo;
+    this.subcategoryNo = subCategoryNo;
   }
 
   public String getName() {
@@ -132,7 +134,15 @@ public class Collection implements Serializable {
     return postDate;
   }
 
-  public void setPostDate(Date postDate) {
+  public void setPostDate(java.util.Date postDate) {
     this.postDate = postDate;
+  }
+
+  public List<AttachedFile> getAttachedFiles() {
+    return attachedFiles;
+  }
+
+  public void setAttachedFiles(List<AttachedFile> attachedFiles) {
+    this.attachedFiles = attachedFiles;
   }
 }

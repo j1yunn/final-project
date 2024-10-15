@@ -119,6 +119,49 @@ main .main-bottom .main-bottom-box .main-bottom-image {
     object-fit: contain;
 }
 
+/* myhome */
+
+.sidemenu {
+    width: 15%;
+    max-width: 250px;
+    height: 400px;
+    margin: 2.5% 40px;
+    float: left;
+    border: 1px solid lightgrey;
+    border-radius: 25px;
+}
+
+.myhome-collections {
+    border-radius: 15px;
+    background: lightgrey;
+    width: 75%;
+    padding: 10px;
+    margin-top: 40px;
+    float: left;
+}
+
+.myhome-collections .collection-box {
+    width: 250px;
+    height: 280px;
+    margin: 20px;
+    padding: 15px 0;
+    border-radius: 4px;
+    background: white;
+    text-align: center;
+    float: left;
+}
+
+.myhome-collections .collection-box .collection-image {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.myhome-collections .collection-box .collection-title {
+    font-weight: bold;
+}
+
+
 /* footer */
 footer {
     height: 100px;

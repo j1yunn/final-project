@@ -1,9 +1,19 @@
 package moum.project.service;
 
 import java.util.List;
+import moum.project.dao.CollectionDao;
 import moum.project.vo.Collection;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DefaultCollectionService implements CollectionService {
+
+  CollectionDao collectionDao;
+
+  public DefaultCollectionService(CollectionDao collectionDao) {
+    this.collectionDao = collectionDao;
+  }
+
   @Override
   public void add(Collection collection) throws Exception {
 
@@ -11,7 +21,7 @@ public class DefaultCollectionService implements CollectionService {
 
   @Override
   public List<Collection> list() throws Exception {
-    return List.of();
+    return collectionDao.list();
   }
 
   @Override

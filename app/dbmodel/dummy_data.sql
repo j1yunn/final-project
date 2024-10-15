@@ -128,6 +128,12 @@ INSERT INTO collection_board (board_id, collection_id) VALUES
 (3, 3),
 (4, 4);
 
+INSERT INTO collection_photo (photo_id, collection_id, filepath) VALUES
+(1, 1, "/images/collections/collection-image-1.png"),
+(2, 2, "/images/collections/collection-image-2.png"),
+(3, 3, "/images/collections/collection-image-3.png"),
+(4, 4, "/images/collections/collection-image-3.png");
+
 -- 댓글 데이터
 INSERT INTO comment (comment_id, user_id, board_id, content) VALUES
 (1, 2, 1, '멋진 경찰서네요! 저도 갖고 싶어요.'),
