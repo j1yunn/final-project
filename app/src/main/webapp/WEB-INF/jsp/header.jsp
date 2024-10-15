@@ -29,7 +29,7 @@
   <div class='login-state pos-right'>
     <c:if test="${empty loginUser}">
       <button class='btn btn-join'>회원가입</button>
-      <button class='btn btn-login' onClick="loginPopup();">로그인</button>
+      <button class='btn btn-login' onClick="openLoginPopup();">로그인</button>
     </c:if>
     <c:if test="${not empty loginUser}">
       <a href='/app/user/view?no=${loginUser.no}' class='btn btn-light'>${loginUser.name}</a>
@@ -39,14 +39,14 @@
 
 </header>
 
-<div class="overlay">
-    <div class="layer login_layer" onClick="closePopup();">
+<div class="overlay" onClick="closePopup();">
+    <div class="layer login_layer" onClick="event.stopPropagation();">
         <img class="x" src="/images/common/x.png" onClick="closePopup();">
         <h2>Login</h2>
         <c:if test="${param.error != null}">
           <p style="color: red;">Invalid username or password.</p>
         </c:if>
-        <form action="/app/login" method="post">
+        <form action="/app/myHome" method="post">
           <div>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -61,14 +61,4 @@
     </div>
 </div>
 
-<script>
-    function loginPopup() {
-        document.getElementsByClassName("overlay")[0].style.display = "block";
-        document.getElementsByClassName("login_layer")[0].style.display = "block";
-    }
-
-    function closePopup() {
-        document.getElementsByClassName("overlay")[0].style.display = "none";
-        document.getElementsByClassName("login_layer")[0].style.display = "none";
-    }
-</script>
+<script src="/js/common.js"></script>

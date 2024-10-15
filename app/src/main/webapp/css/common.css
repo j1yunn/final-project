@@ -189,7 +189,8 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: 0.5s;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .overlay {
@@ -204,7 +205,8 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    transition: 0.5s;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .x {
